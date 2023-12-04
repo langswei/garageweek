@@ -8,10 +8,10 @@ import { loadScript } from '../../scripts/aem.js';
 export default async function decorate(block) {
 
     window.adobeid = {
-        client_id: 'garage-week-ims',
+        client_id: '0757387dd3b743e59157bf9577adac52',
         scope: 'AdobeID,openid',
         locale: 'en_US',
-        environment: 'stg1',
+        environment: 'prod',
         useLocalStorage: false,
         autoValidateToken: true,
         onAccessToken: function (tokenInformation) {
@@ -23,10 +23,13 @@ export default async function decorate(block) {
         onAccessTokenHasExpired: function() {
         },
         onReady: function(appState) {
+          if (!window.adobeIMS.isSignedInUser()) {
+            window.adobeIMS.signIn();
+          }
         }
     };
 
-    loadScript('https://auth-stg1.services.adobe.com/imslib/imslib.min.js');
+    loadScript('https://auth.services.adobe.com/imslib/imslib.min.js');
 
     /*
     // const cfg = readBlockConfig(block);
