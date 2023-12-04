@@ -23,9 +23,7 @@ export default async function decorate(block) {
         onAccessTokenHasExpired: function() {
         },
         onReady: function(appState) {
-          if (!window.adobeIMS.isSignedInUser()) {
-            window.adobeIMS.signIn();
-          }
+
         },
         api_parameters: {
           grant_type: 'authorization_code',
