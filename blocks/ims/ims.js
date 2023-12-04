@@ -27,7 +27,7 @@ export default async function decorate(block) {
             window.adobeIMS.signIn();
           }
         },
-        additionalParams: {
+        api_parameters: {
           grant_type: 'authorization_code',
         }
     };
