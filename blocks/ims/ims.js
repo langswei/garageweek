@@ -1,11 +1,34 @@
 /* eslint-disable no-console */
-// import { readBlockConfig } from '../../scripts/aem.js';
+import { loadScript } from '../../scripts/aem.js';
 
 /**
  * loads and decorates the footer
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
+
+    window.adobeid = {
+        client_id: 'garage-week-ims',
+        scope: 'AdobeID,openid',
+        locale: 'en_US',
+        environment: 'stg1',
+        useLocalStorage: false,
+        autoValidateToken: true,
+        onAccessToken: function (tokenInformation) {
+        },
+        onReauthAccessToken: function (reauthTokenInformation) {
+        },
+        onError: function (error) {
+        },
+        onAccessTokenHasExpired: function() {
+        },
+        onReady: function(appState) {
+        }
+    };
+
+    loadScript('https://auth-stg1.services.adobe.com/imslib/imslib.min.js');
+
+    /*
     // const cfg = readBlockConfig(block);
     block.innerHTML = '';
   
@@ -21,7 +44,7 @@ export default async function decorate(block) {
     }).catch(() => {
       console.log('IMS check not successful.');
     });
-  
+    */
 
   }
   
