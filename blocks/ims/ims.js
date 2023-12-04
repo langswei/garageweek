@@ -26,6 +26,9 @@ export default async function decorate(block) {
           if (!window.adobeIMS.isSignedInUser()) {
             window.adobeIMS.signIn();
           }
+        },
+        additionalParams: {
+          grant_type: 'authorization_code',
         }
     };
 
