@@ -8,7 +8,7 @@ import { loadScript } from '../../scripts/aem.js';
 export default async function decorate(block) {
 
     window.adobeid = {
-        client_id: '0757387dd3b743e59157bf9577adac52',
+        client_id: '43a4b082e5b84422b0e5166871697ca4',
         scope: 'AdobeID,openid',
         locale: 'en_US',
         environment: 'prod',
