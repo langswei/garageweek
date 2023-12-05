@@ -25,6 +25,9 @@ export default async function decorate(block) {
         onReady: function(appState) {
 
         },
+        api_parameters: {
+          grant_type: 'authorization_code',
+        }
     };
 
     loadScript('https://auth.services.adobe.com/imslib/imslib.min.js');
