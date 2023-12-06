@@ -49,7 +49,7 @@ export default async function decorate(block) {
     });
     */
 
-    
+    setTimeout(null, 3000);
     console.log(window.adobeIMS.getAccessToken());
     console.log('json:' + JSON.stringify(window.adobeIMS.getAccessToken()));
 
