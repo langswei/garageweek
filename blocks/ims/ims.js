@@ -49,25 +49,27 @@ export default async function decorate(block) {
     });
     */
 
-    setTimeout(() => {
+    setTimeout(async () => {
        console.log(window.adobeIMS.getAccessToken());
        console.log('json:' + JSON.stringify(window.adobeIMS.getAccessToken()));
        console.log('tokeninfo:' + window.adobeIMS.getAccessToken().token);
-    }, 3000);
 
-    // check for organizations
-    /*
-    const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1');
+       const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1');
     await fetch(preview, {
       method: 'GET',
       headers: {
-        'Authorization': 'Bearer ' + window.adobeIMS.getAccessToken().tokenInformation,
+        'Authorization': 'Bearer ' + window.adobeIMS.getAccessToken().token,
       },
     }).then((response) => {
       console.log(JSON.stringify(response));
     }).catch(() => {
       console.log('IMS check not successful.');
     });
+    }, 3000);
+
+    // check for organizations
+    /*
+    
     */
     
 
