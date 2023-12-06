@@ -24,7 +24,7 @@ export default async function decorate(block) {
         },
         onReady: function(appState) {
           if (!window.adobeIMS.isSignedInUser()) {
-            window.adobeIMS.signIn();
+            //window.adobeIMS.signIn();
           }
         }
     };
