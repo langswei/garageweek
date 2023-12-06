@@ -9,7 +9,7 @@ export default async function decorate(block) {
 
     window.adobeid = {
         client_id: 'garage-week-ims',
-        scope: 'AdobeID,openid',
+        scope: 'AdobeID,openid,additonal_info.ownerOrg',
         locale: 'en_US',
         environment: 'stg1',
         useLocalStorage: false,
@@ -31,7 +31,7 @@ export default async function decorate(block) {
 
     loadScript('https://auth-stg1.services.adobe.com/imslib/imslib.min.js');
 
-    /*
+    
     setTimeout(async () => {
       console.log(window.adobeIMS.getAccessToken());
       console.log('profile:' + JSON.stringify(window.adobeIMS.getProfile()));
@@ -52,7 +52,6 @@ export default async function decorate(block) {
         console.log('IMS check not successful.');
       });
     }, 3000);
-    */
 
   }
   
