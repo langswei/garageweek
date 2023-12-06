@@ -9,7 +9,7 @@ export default async function decorate(block) {
 
     window.adobeid = {
         client_id: 'garage-week-ims',
-        scope: 'AdobeID,openid,additonal_info.ownerOrg',
+        scope: 'AdobeID,openid',
         locale: 'en_US',
         environment: 'stg1',
         useLocalStorage: false,
@@ -24,7 +24,7 @@ export default async function decorate(block) {
         },
         onReady: function(appState) {
           if (!window.adobeIMS.isSignedInUser()) {
-            //window.adobeIMS.signIn();
+            window.adobeIMS.signIn();
           }
         }
     };
