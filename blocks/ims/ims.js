@@ -32,23 +32,6 @@ export default async function decorate(block) {
     loadScript('https://auth-stg1.services.adobe.com/imslib/imslib.min.js');
 
     /*
-    // const cfg = readBlockConfig(block);
-    block.innerHTML = '';
-  
-    // check for authentication
-    const preview = new URL('https://admin.hlx.page/auth/adobe');
-    await fetch(preview, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    }).then((response) => {
-      console.log(JSON.stringify(response));
-    }).catch(() => {
-      console.log('IMS check not successful.');
-    });
-    */
-
     setTimeout(async () => {
       console.log(window.adobeIMS.getAccessToken());
       console.log('profile:' + JSON.stringify(window.adobeIMS.getProfile()));
@@ -57,13 +40,10 @@ export default async function decorate(block) {
       //console.log('test:' + window.adobeIMS.);
 
       // check for organizations
-      /* */
       const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1?client_id=garage-week-ims');
       await fetch(orgUrl, {
         method: 'GET',
         headers: {
-          'Host': 'ims-na1-stg1.adobelogin.com',
-          Accept: '*/*',
           'Authorization': 'Bearer ' + window.adobeIMS.getAccessToken().token,
         },
       }).then((response) => {
@@ -71,8 +51,8 @@ export default async function decorate(block) {
       }).catch(() => {
         console.log('IMS check not successful.');
       });
-      /* */
     }, 3000);
+    */
 
   }
   
