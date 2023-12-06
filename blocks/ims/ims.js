@@ -50,32 +50,23 @@ export default async function decorate(block) {
     */
 
     setTimeout(async () => {
-       console.log(window.adobeIMS.getAccessToken());
-       console.log('json:' + JSON.stringify(window.adobeIMS.getAccessToken()));
-       console.log('tokeninfo:' + window.adobeIMS.getAccessToken().token);
+      console.log(window.adobeIMS.getAccessToken());
+      console.log('json:' + JSON.stringify(window.adobeIMS.getAccessToken()));
+      console.log('tokeninfo:' + window.adobeIMS.getAccessToken().token);
 
-       const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1');
-    await fetch(preview, {
-      method: 'GET',
-      headers: {
-        'Authorization': 'Bearer ' + window.adobeIMS.getAccessToken().token,
-      },
-    }).then((response) => {
+      // check for organizations
+      const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1');
+      await fetch(orgUrl, {
+        method: 'GET',
+        headers: {
+          'Authorization': 'Bearer ' + window.adobeIMS.getAccessToken().token,
+        },
+      }).then((response) => {
       console.log(JSON.stringify(response));
-    }).catch(() => {
-      console.log('IMS check not successful.');
-    });
+      }).catch(() => {
+        console.log('IMS check not successful.');
+      });
     }, 3000);
-
-    // check for organizations
-    /*
-    
-    */
-    
-
-    
-
-
 
   }
   
