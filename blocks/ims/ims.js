@@ -50,8 +50,9 @@ export default async function decorate(block) {
     */
 
     setTimeout(() => {
-      // console.log(window.adobeIMS.getAccessToken());
-      // console.log('json:' + JSON.stringify(window.adobeIMS.getAccessToken()));
+       console.log(window.adobeIMS.getAccessToken());
+       console.log('json:' + JSON.stringify(window.adobeIMS.getAccessToken()));
+       console.log('tokeninfo:' + window.adobeIMS.getAccessToken().tokenInformation);
     }, 3000);
 
     // check for organizations
