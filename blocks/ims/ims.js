@@ -58,7 +58,7 @@ export default async function decorate(block) {
 
       // check for organizations
       /* */
-      const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1?client_id=garage-week-ims');
+      const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1?client_id=garage-week-ims&jslVersion=v2-v0.40.0-6-g0126c56');
       await fetch(orgUrl, {
         method: 'GET',
         headers: {
