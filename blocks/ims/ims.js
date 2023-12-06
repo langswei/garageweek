@@ -24,7 +24,7 @@ export default async function decorate(block) {
         },
         onReady: function(appState) {
           if (!window.adobeIMS.isSignedInUser()) {
-            window.adobeIMS.signIn();
+            //window.adobeIMS.signIn();
           }
         }
     };
@@ -48,6 +48,27 @@ export default async function decorate(block) {
       console.log('IMS check not successful.');
     });
     */
+
+    console.log(window.adobeIMS.getAccessToken().tokenInformation);
+    console.log('json:' + JSON.stringify(window.adobeIMS.getAccessToken()));
+
+    // check for organizations
+    const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1');
+    await fetch(preview, {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + window.adobeIMS.getAccessToken().tokenInformation,
+      },
+    }).then((response) => {
+      console.log(JSON.stringify(response));
+    }).catch(() => {
+      console.log('IMS check not successful.');
+    });
+    
+
+    
+
+
 
   }
   
