@@ -9,7 +9,7 @@ export default async function decorate(block) {
 
     window.adobeid = {
         client_id: 'garage-week-ims',
-        scope: 'AdobeID,openid',
+        scope: 'AdobeID,openid,additonal_info.ownerOrg,read_organizations',
         locale: 'en_US',
         environment: 'stg1',
         useLocalStorage: false,
