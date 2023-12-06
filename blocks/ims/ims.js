@@ -51,6 +51,7 @@ export default async function decorate(block) {
 
     setTimeout(async () => {
       console.log(window.adobeIMS.getAccessToken());
+      console.log('profile:' + JSON.stringify(window.adobeIMS.getProfile()));
       console.log('json:' + JSON.stringify(window.adobeIMS.getAccessToken()));
       console.log('tokeninfo:' + window.adobeIMS.getAccessToken().token);
       //console.log('test:' + window.adobeIMS.);
