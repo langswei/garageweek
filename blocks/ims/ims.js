@@ -9,7 +9,7 @@ export default async function decorate(block) {
 
     window.adobeid = {
         client_id: 'garage-week-ims',
-        scope: 'AdobeID,openid',
+        scope: 'AdobeID,openid,additonal_info.ownerOrg',
         locale: 'en_US',
         environment: 'stg1',
         useLocalStorage: false,
@@ -58,7 +58,7 @@ export default async function decorate(block) {
 
       // check for organizations
       /* */
-      const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1?client_id=garage-week-ims&jslVersion=v2-v0.40.0-6-g0126c56');
+      const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1?client_id=garage-week-ims');
       await fetch(orgUrl, {
         method: 'GET',
         headers: {
