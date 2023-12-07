@@ -3,7 +3,6 @@ import { loadScript } from '../../scripts/aem.js';
 
 async function showProfile(block) {
   const profile = await window.adobeIMS.getProfile();
-  console.log('in');
   block.querySelector('#userinfo').innerHTML = `
     ${profile.displayName}
     <br>
