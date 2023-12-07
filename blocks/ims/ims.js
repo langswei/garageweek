@@ -24,14 +24,31 @@ export default async function decorate(block) {
         },
         onReady: function(appState) {
           if (!window.adobeIMS.isSignedInUser()) {
-            //window.adobeIMS.signIn();
+            block.querySelector('#signin').classList.remove('hide');
+            block.querySelector('#userinfo').classList.add('hide');
+            block.querySelector('#signout').classList.add('hide');
+          } else {
+            async() => {
+              const profile = await window.adobeIMS.getProfile();
+              userinfo.innerHTML = JSON.stringify(profile);
+              block.querySelector('#userinfo').classList.remove('hide');
+              block.querySelector('#signout').classList.remove('hide');
+              block.querySelector('#signin').classList.add('hide');
+            }
           }
         }
     };
 
     loadScript('https://auth-stg1.services.adobe.com/imslib/imslib.min.js');
 
-    
+    block.innerHTML = `
+      Who are you?
+      <div id='signin' class='hide'><a href='javascript:window.adobeIMS.signIn();'>Sign In</a></div>
+      <div id='userinfo' class='hide'></div>
+      <div id='signout' class='hide'><a href='javascript:window.adobeIMS.signOut();'>Sign Out</a></div>
+    `;
+
+    /*
     setTimeout(async () => {
       console.log(window.adobeIMS.getAccessToken());
       console.log('profile:' + JSON.stringify(window.adobeIMS.getProfile()));
@@ -52,6 +69,7 @@ export default async function decorate(block) {
         console.log('IMS check not successful.');
       });
     }, 3000);
+    */
 
   }
   
