@@ -4,7 +4,13 @@ import { loadScript } from '../../scripts/aem.js';
 async function showProfile(block) {
   const profile = await window.adobeIMS.getProfile();
   console.log('in');
-  block.querySelector('#userinfo').innerHTML = JSON.stringify(profile);
+  block.querySelector('#userinfo').innerHTML = `
+    ${profile.displayName}
+    <br>
+    ${profile.email}
+    <br>
+    IMS Org Id: ${profile.ownerOrg}
+  `;
 }
 
 /**
