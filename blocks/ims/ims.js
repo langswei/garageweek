@@ -1,6 +1,10 @@
 /* eslint-disable no-console */
 import { loadScript } from '../../scripts/aem.js';
 
+async function showProfile() {
+  
+}
+
 /**
  * loads and decorates the footer
  * @param {Element} block The footer block element
@@ -28,9 +32,10 @@ export default async function decorate(block) {
             block.querySelector('#userinfo').classList.add('hide');
             block.querySelector('#signout').classList.add('hide');
           } else {
-            async() => {
+            async () => {
               const profile = await window.adobeIMS.getProfile();
-              userinfo.innerHTML = JSON.stringify(profile);
+              console.log('in');
+              block.querySelector('#userinfo').innerHTML = JSON.stringify(profile);
               block.querySelector('#userinfo').classList.remove('hide');
               block.querySelector('#signout').classList.remove('hide');
               block.querySelector('#signin').classList.add('hide');
