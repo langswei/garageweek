@@ -55,29 +55,5 @@ export default async function decorate(block) {
       <div id='userinfo' class='hide'></div>
       <div id='signout' class='hide'><a href='javascript:window.adobeIMS.signOut();'>Sign Out</a></div>
     `;
-
-    /*
-    setTimeout(async () => {
-      console.log(window.adobeIMS.getAccessToken());
-      console.log('profile:' + JSON.stringify(window.adobeIMS.getProfile()));
-      console.log('json:' + JSON.stringify(window.adobeIMS.getAccessToken()));
-      console.log('tokeninfo:' + window.adobeIMS.getAccessToken().token);
-      //console.log('test:' + window.adobeIMS.);
-
-      // check for organizations
-      const orgUrl = new URL('https://ims-na1-stg1.adobelogin.com/ims/organizations/v1?client_id=garage-week-ims');
-      await fetch(orgUrl, {
-        method: 'GET',
-        headers: {
-          'Authorization': 'Bearer ' + window.adobeIMS.getAccessToken().token,
-        },
-      }).then((response) => {
-      console.log(JSON.stringify(response));
-      }).catch(() => {
-        console.log('IMS check not successful.');
-      });
-    }, 3000);
-    */
-
   }
   
